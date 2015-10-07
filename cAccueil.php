@@ -18,7 +18,7 @@
   <!-- Division principale -->
   <div id="contenu">
       <h2>Bienvenue sur l'intranet GSB</h2>
-      <h3>Test</h3>
+      <h3>Test number 1</h3>
   </div>
 <?php        
   require($repInclude . "_pied.inc.html");
