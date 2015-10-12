@@ -75,6 +75,8 @@ class PdoGsb{
 		return $ligne;
 	}
         
+        //Est un comptable
+        
         public function estUnComptable($login, $mdp){
             $req = "select comptable.id as id, comptable.nom as nom, comptable.prenom as prenom, comptable.login as login
                     where comptable.login='$login' and comptable.mdp='$mdp'";
