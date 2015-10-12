@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Script de contrôle et d'affichage du cas d'utilisation "Se connecter"
  * @package default
@@ -14,7 +15,8 @@ if ($etape == 'validerConnexion') { // un client demande à s'authentifier
     // acquisition des données envoyées, ici login et mot de passe
     $login = lireDonneePost("txtLogin");
     $mdp = lireDonneePost("txtMdp");
-    $lgUser = $pdo->estUnVisiteur($login, $mdp);
+    $type = lireDonneePost("typeCo");
+    $lgUser = $pdo->estUnVisiteurRole($login, $mdp,$type);
     // si l'id utilisateur a été trouvé, donc informations fournies sous forme de tableau
     if (is_array($lgUser)) {
         affecterInfosConnecte($lgUser["id"], $lgUser["login"]);
@@ -31,14 +33,14 @@ require($repInclude . "_sommaire.inc.php");
 ?>
 <!-- Division pour le contenu principal -->
 <div id="contenu">
-    <h2>Identification utilisateur</h2>
-<?php
-if ($etape == "validerConnexion") {
-    if (nbErreurs($tabErreurs) > 0) {
-        echo toStringErreurs($tabErreurs);
+    <h2>Identification</h2>
+    <?php
+    if ($etape == "validerConnexion") {
+        if (nbErreurs($tabErreurs) > 0) {
+            echo toStringErreurs($tabErreurs);
+        }
     }
-}
-?>               
+    ?>
     <form id="frmConnexion" action="" method="post">
         <div class="corpsForm">
             <input type="hidden" name="etape" id="etape" value="validerConnexion" />
@@ -50,6 +52,13 @@ if ($etape == "validerConnexion") {
                 <label for="txtMdp" accesskey="m">* Mot de passe : </label>
                 <input type="password" id="txtMdp" name="txtMdp" maxlength="8" size="15" value=""  title="Entrez votre mot de passe"/>
             </p>
+            <p>
+                <label for="typeCo" accesskey="m">* Vous êtes : </label>
+                <select name="typeCo" size="1">
+                    <option value="0" selected>Visiteur médical</option>
+                    <option value="1">Comptable</option>
+                </select>
+            </p>
         </div>
         <div class="piedForm">
             <p>
@@ -58,7 +67,7 @@ if ($etape == "validerConnexion") {
             </p> 
         </div>
     </form>
-    
+
 </div>
 <?php
 require($repInclude . "_pied.inc.html");

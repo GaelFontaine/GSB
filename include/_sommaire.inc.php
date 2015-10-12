@@ -4,7 +4,6 @@
  * connexion ou non d'un utilisateur, et dans l'avenir, suivant le type de cet utilisateur 
  * @todo  RAS
  */
-
 ?>
     <!-- Division pour le sommaire -->
     <div id="menuGauche">

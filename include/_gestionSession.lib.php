@@ -57,7 +57,11 @@ function deconnecterVisiteur() {
  * @return boolean échec ou succès
  */
 function estVisiteurConnecte() {
-    // actuellement il n'y a que les visiteurs qui se connectent
     return isset($_SESSION["loginUser"]);
 }
+
+function estComptableConnecte() {
+    return isset($_SESSION["loginUser"]);
+}
+
 ?>

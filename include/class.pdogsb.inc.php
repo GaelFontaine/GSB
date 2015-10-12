@@ -59,14 +59,6 @@ class PdoGsb{
 		$ligne = $rs->fetch();
 		return $ligne;
 	}
-        
-        public function getInfosComptable($id){
-		$req = "select comptable.login as login, comptable.nom as nom, comptable.prenom as prenom from comptable 
-		where comptable.id='$id'";
-		$rs = PdoGsb::$monPdo->query($req);
-		$ligne = $rs->fetch();
-		return $ligne;
-	}
 
 /**
  * Retourne les informations d'un visiteur
@@ -75,23 +67,13 @@ class PdoGsb{
  * @param $mdp
  * @return l'id, le nom et le prénom sous la forme d'un tableau associatif 
 */
-	public function estUnVisiteur($login, $mdp){
+	public function estUnVisiteurRole($login, $mdp,$role){
 		$req = "select visiteur.id as id, visiteur.nom as nom, visiteur.prenom as prenom, visiteur.login as login from visiteur 
-		where visiteur.login='$login' and visiteur.mdp='$mdp'";
+		where visiteur.login='$login' and visiteur.mdp='$mdp' and visiteur.role='$role'";
 		$rs = PdoGsb::$monPdo->query($req);
 		$ligne = $rs->fetch();
 		return $ligne;
 	}
-        
-        //Est un comptable
-        
-        public function estUnComptable($login, $mdp){
-            $req = "select comptable.id as id, comptable.nom as nom, comptable.prenom as prenom, comptable.login as login
-                    where comptable.login='$login' and comptable.mdp='$mdp'";
-            $rs = PdoGsb::$monPdo->query($req);
-            $ligne = $rs->fetch();
-            return $ligne;
-        }
         
 /**
  * Retourne sous forme d'un tableau associatif toutes les lignes de frais hors forfait
