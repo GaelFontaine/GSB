@@ -58,6 +58,7 @@ if ($etape == "validerConnexion") {
             </p> 
         </div>
     </form>
+    
 </div>
 <?php
 require($repInclude . "_pied.inc.html");

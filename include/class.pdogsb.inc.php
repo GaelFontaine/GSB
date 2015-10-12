@@ -83,6 +83,16 @@ class PdoGsb{
 		return $ligne;
 	}
         
+        //Est un comptable
+        
+        public function estUnComptable($login, $mdp){
+            $req = "select comptable.id as id, comptable.nom as nom, comptable.prenom as prenom, comptable.login as login
+                    where comptable.login='$login' and comptable.mdp='$mdp'";
+            $rs = PdoGsb::$monPdo->query($req);
+            $ligne = $rs->fetch();
+            return $ligne;
+        }
+        
 /**
  * Retourne sous forme d'un tableau associatif toutes les lignes de frais hors forfait
  * concernées par les deux arguments
