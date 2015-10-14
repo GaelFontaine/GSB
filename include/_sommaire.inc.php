@@ -6,27 +6,58 @@
  */
 ?>
     <!-- Division pour le sommaire -->
-    <div id="menuGauche">
-     <div id="infosUtil">
     <?php      
       if (estVisiteurConnecte() ) {
           $idUser = obtenirIdUserConnecte() ;
           $lgUser = $pdo->getInfosVisiteur($idUser);
           $nom = $lgUser['nom'];
-          $prenom = $lgUser['prenom'];            
-    ?>
+          $prenom = $lgUser['prenom']; 
+          $role = $lgUser['role'];
+
+                ?>
+    <!-- Division pour le sommaire -->
+    <div id="menuGauche">
+     <div id="infosUtil">
+
         <h2>
     <?php  
             echo $nom . " " . $prenom ;
+            
     ?>
         </h2>
+         <?php
+            if($role == 1)
+            {
+                ?>
+         <h3>Comptable</h3>
+         <?php
+            }
+            else{ ?>
         <h3>Visiteur médical</h3>        
     <?php
-       }
-    ?>  
+            } ?>
       </div>  
 <?php      
   if (estVisiteurConnecte() ) {
+      if($role == 1)
+      {
+          ?>
+         <ul id="menuList">
+           <li class="smenu">
+              <a href="cAccueil.php" title="Page d'accueil">Accueil</a>
+           </li>
+           <li class="smenu">
+              <a href="cSeDeconnecter.php" title="Se déconnecter">Se déconnecter</a>
+           </li>
+           <li class="smenu">
+              <a href="" title="Validation des fiches de frais">Validation des fiches de frais</a>
+           </li>
+           <li class="smenu">
+              <a href="" title="Suivi du paiement des fiches de frais">Suivi du paiement des fiches de frais</a>
+           </li>
+         </ul>
+        <?php
+      }else{
 ?>
         <ul id="menuList">
            <li class="smenu">
@@ -43,6 +74,7 @@
            </li>
          </ul>
         <?php
+  }}
           // affichage des éventuelles erreurs déjà détectées
           if ( nbErreurs($tabErreurs) > 0 ) {
               echo toStringErreurs($tabErreurs) ;
@@ -50,4 +82,5 @@
   }
         ?>
     </div>
+
     
