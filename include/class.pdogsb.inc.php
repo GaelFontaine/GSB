@@ -53,7 +53,7 @@ class PdoGsb{
  * @return le login, le nom et le prénom sous la forme d'un tableau associatif 
 */
 	public function getInfosVisiteur($id){
-		$req = "select visiteur.login as login, visiteur.nom as nom, visiteur.prenom as prenom from visiteur 
+		$req = "select visiteur.login as login, visiteur.nom as nom, visiteur.prenom as prenom, visiteur.role as role from visiteur 
 		where visiteur.id='$id'";
 		$rs = PdoGsb::$monPdo->query($req);
 		$ligne = $rs->fetch();
@@ -98,6 +98,15 @@ class PdoGsb{
 		}
 		return $lesLignes; 
 	}
+        
+        public function getLesFichesValidees(){
+            $req = "select nom, prenom, montantValide, dateModif from fichefrais inner join visiteur on fichefrais.idVisiteur = visiteur.id where idEtat='VA'";
+            $res = PdoGsb::$monPdo->query($req);
+            $lignes = $res->fetchAll();
+            return $lignes;
+        }
+        
+        
 /**
  * Retourne le nombre de justificatif d'un visiteur pour un mois donné
  
@@ -283,6 +292,8 @@ class PdoGsb{
 		}
 		return $lesMois;
 	}
+        
+        
 /**
  * Retourne les informations d'une fiche de frais d'un visiteur pour un mois donné
  

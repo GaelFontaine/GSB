@@ -200,7 +200,7 @@ taille de caractères légèrement supérieure à la normale */
 
 /* Style pour les liens de la page principale */
 #contenu a {
-   font-size : 1.1em;
+   font-size : 1.0em;
    color:gray;
    text-decoration:none;
 }
@@ -268,10 +268,11 @@ table.listeLegere td {
 table.listeLegere th.eltForfait{
   color:black;
 }
-table.listeLegere th.date, table.listeLegere th.montant{
+table.listeLegere th.date, table.listeLegere th.montant, table.listeLegere th.montantValide, table.listeLegere th.dateModif, table.listeLegere th.idVisiteur{
   width:15%;
   color:black;
 }
+
 table.listeLegere th.libelle{
   width:70%;
   color:black;
@@ -294,3 +295,8 @@ table.listeLegere th.libelle{
   float : left;
 
 }
+
+#dessus:hover{
+    background-color: #FFFD8B;
+}
+
