@@ -46,22 +46,20 @@ body{
 	padding: 1.3em;
 	background-color: white;
 	border-left :  groove 0.8em #980101;
-  margin-top : 1.2em;
-	margin-left: 18%;
-/* permet de fixer une hauteur mini sur les navigateurs modernes */
-  min-height:27em;
-/* pour obtenir le même effet sur IE, sachant que si le contenu dépasse, il
+	margin-top : 1.2em;
+	margin-left: 18%;/* permet de fixer une hauteur mini sur les navigateurs modernes */
+	min-height:27em;/* pour obtenir le m�me effet sur IE, sachant que si le contenu d�passe, il
 "poussera" la hauteur en ne respectant pas la norme. On se joue de ses lacunes
 */
-  height:27em;
+	height:27em;
 }
 
-/* pour rétablir le mauvais effet sur les nav. modernes */
+/* pour r�tablir le mauvais effet sur les nav. modernes */
 html>body #contenu{
   height:auto;
 }
 
-/* style à appliquer à la balise ul d'identifiant menulist */
+/* style � appliquer � la balise ul d'identifiant menulist */
 ul#menuList{
     list-style:none;
     margin:0px;
@@ -70,14 +68,14 @@ ul#menuList{
     font-size: 1em;
 }
 
-/* style à appliquer aux éléments de la balise ul d'identifiant menulist */
+/* style � appliquer aux �l�ments de la balise ul d'identifiant menulist */
 ul#menuList li {
     position:relative;
     margin:0px;
     padding:0px;
 }
 
-/* apparences des liens dans listes et sous-listes non numérotées */
+/* apparences des liens dans listes et sous-listes non num�rot�es */
 ul#menuList a {
     color:rgb(0,85,227);
     display:block;
@@ -170,7 +168,7 @@ input:hover, textarea:hover, select:hover{
 }
 
 /*  Le texte des messages d'erreur est de couleur rose sur fond ocre et de 
-taille de caractères légèrement supérieure à la normale */
+taille de caract�res l�g�rement sup�rieure � la normale */
 .erreur{ 
    background-color:rgb(237,210,229);
    color:rgb(203,28,128);
@@ -225,7 +223,7 @@ taille de caractères légèrement supérieure à la normale */
    border-collapse : collapse;
 }
 
-/* Style pour les lignes d'en-tête des tableaux */
+/* Style pour les lignes d'en-t�te des tableaux */
 #contenu th {  
    background-color:#77AADD;
    height:21px;
@@ -248,7 +246,7 @@ table.listeLegere {
     margin-bottom : 0.5em;
 }
 
-/* Tableaux quadrillés utilisés pour l'affichage de listes avec contenu léger*/ 
+/* Tableaux quadrill�s utilis�s pour l'affichage de listes avec contenu l�ger*/ 
 table.listeLegere th, table.listeLegere td {
   border : dotted rgb(178,207,81) 0.1em;
   padding:0.5em;
@@ -287,7 +285,7 @@ table.listeLegere th.libelle{
 	border : 1px solid #6988BE;
 	padding-left: 25px;
 	background-color: #E9F1FE;
-  height : 28px;
+        height : 28px;
 }
 
 #contenu img {
@@ -300,3 +298,7 @@ table.listeLegere th.libelle{
     background-color: #FFFD8B;
 }
 
+.btnAffiche  {
+    background: url('images/details.png') no-repeat center center;
+    cursor: pointer;
+}

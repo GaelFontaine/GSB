@@ -4,7 +4,7 @@
  * @package default
  * @todo  RAS
  */
-$repInclude = './include/';
+$repInclude = '../include/';
 require($repInclude . "_init.inc.php");
 
 // page inaccessible si visiteur non connecté

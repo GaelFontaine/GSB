@@ -5,7 +5,7 @@
  * @package default
  * @todo  RAS
  */
-require("class.pdogsb.inc.php");
+require("classes/class.pdogsb.inc.php");
 require("_gestionSession.lib.php");
 require("_utilitairesEtGestionErreurs.lib.php");
 // démarrage ou reprise de la session
@@ -17,7 +17,7 @@ $tabErreurs = array();
 $demandeDeconnexion = lireDonneeUrl("cmdDeconnecter");
 if ($demandeDeconnexion == "on") {
     deconnecterVisiteur();
-    header("Location: cAccueil.php");
+    header("Location: ../pages/cAccueil.php");
 }
 
 try {
