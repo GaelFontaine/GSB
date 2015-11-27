@@ -40,16 +40,16 @@ if (estVisiteurConnecte()) {
                     ?>
                 <ul id="menuList">
                     <li class="smenu">
-                        <a href="cAccueil.php" title="Page d'accueil">Accueil</a>
+                        <a href="../pages/cAccueil.php" title="Page d'accueil">Accueil</a>
                     </li>
                     <li class="smenu">
-                        <a href="cSeDeconnecter.php" title="Se déconnecter">Se déconnecter</a>
+                        <a href="../pages/cSeDeconnecter.php" title="Se déconnecter">Se déconnecter</a>
                     </li>
                     <li class="smenu">
-                        <a href="" title="Validation des fiches de frais">Validation des fiches de frais</a>
+                        <a href="../pages/cValidationFicheVisit.php" title="Validation des fiches de frais">Validation des fiches de frais</a>
                     </li>
                     <li class="smenu">
-                        <a href="cSuiviPaiementFiche.php" title="Suivi du paiement des fiches de frais">Suivi du paiement des fiches de frais</a>
+                        <a href="../pages/cSuiviPaiementFiche.php" title="Suivi du paiement des fiches de frais">Suivi du paiement des fiches de frais</a>
                     </li>
                 </ul>
             <?php
@@ -57,15 +57,15 @@ if (estVisiteurConnecte()) {
             ?>
                 <ul id="menuList">
                     <li class="smenu">
-                        <a href="cAccueil.php" title="Page d'accueil">Accueil</a>
+                        <a href="../pages/cAccueil.php" title="Page d'accueil">Accueil</a>
                     </li>
                     <li class="smenu">
-                        <a href="cSeDeconnecter.php" title="Se déconnecter">Se déconnecter</a>
+                        <a href="../pages/cSeDeconnecter.php" title="Se déconnecter">Se déconnecter</a>
                     </li>
                         <h2>Outils</h2>
                         <ul>
-                            <li class="smenu"><a href="cSaisieFicheFrais.php" >Nouvelle fiche de frais</a></li>
-                            <li class="smenu"><a href="cConsultFichesFrais.php">Consulter mes fiches de frais</a></li>
+                            <li class="smenu"><a href="../pages/cSaisieFicheFrais.php" >Nouvelle fiche de frais</a></li>
+                            <li class="smenu"><a href="../pages/cConsultFichesFrais.php">Consulter mes fiches de frais</a></li>
                         </ul>
                 </ul>
             <?php
