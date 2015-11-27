@@ -5,7 +5,7 @@
  * @package default
  * @todo  RAS
  */
-$repInclude = './include/';
+$repInclude = '../include/';
 require($repInclude . "_init.inc.php");
 
 // est-on au 1er appel du programme ou non ?

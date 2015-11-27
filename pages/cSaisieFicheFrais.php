@@ -4,7 +4,7 @@
  * @package default
  * @todo  RAS
  */
-$repInclude = './include/';
+$repInclude = '../include/';
 require($repInclude . "_init.inc.php");
 
 // page inaccessible si visiteur non connecté
@@ -56,12 +56,12 @@ if ($etape == "validerSaisie") {
 <!-- Division principale -->
 <div id="contenu">
     <h2>Renseigner ma fiche de frais du mois de <?php echo obtenirLibelleMois(intval(substr($mois, 4, 2))) . " " . substr($mois, 0, 4); ?></h2>
-<?php
-if ($etape == "validerSaisie" || $etape == "validerAjoutLigneHF" || $etape == "validerSuppressionLigneHF") {
-    if (nbErreurs($tabErreurs) > 0) {
-        echo toStringErreurs($tabErreurs);
-    } else {
-        ?>
+    <?php
+    if ($etape == "validerSaisie" || $etape == "validerAjoutLigneHF" || $etape == "validerSuppressionLigneHF") {
+        if (nbErreurs($tabErreurs) > 0) {
+            echo toStringErreurs($tabErreurs);
+        } else {
+            ?>
             <p class="info">Les modifications de la fiche de frais ont bien été enregistrées</p>        
             <?php
         }
@@ -73,15 +73,15 @@ if ($etape == "validerSaisie" || $etape == "validerAjoutLigneHF" || $etape == "v
             <fieldset>
                 <legend>Eléments forfaitisés
                 </legend>
-<?php
+                <?php
 // demande de la requête pour obtenir la liste des éléments 
 // forfaitisés du visiteur connecté pour le mois demandé
-$idJeuEltsFraisForfait = $pdo->getLesFraisForfait(obtenirIdUserConnecte(), $mois);
-foreach ($idJeuEltsFraisForfait as $lgEltForfait) {
-    $idFraisForfait = $lgEltForfait["idFrais"];
-    $libelle = $lgEltForfait["libelle"];
-    $quantite = $lgEltForfait["quantite"];
-    ?>
+                $idJeuEltsFraisForfait = $pdo->getLesFraisForfait(obtenirIdUserConnecte(), $mois);
+                foreach ($idJeuEltsFraisForfait as $lgEltForfait) {
+                    $idFraisForfait = $lgEltForfait["idFrais"];
+                    $libelle = $lgEltForfait["libelle"];
+                    $quantite = $lgEltForfait["quantite"];
+                    ?>
                     <p>
                         <label for="<?php echo $idFraisForfait ?>">* <?php echo $libelle; ?> : </label>
                         <input type="text" id="<?php echo $idFraisForfait ?>" 
@@ -90,9 +90,9 @@ foreach ($idJeuEltsFraisForfait as $lgEltForfait) {
                                title="Entrez la quantité de l'élément forfaitisé" 
                                value="<?php echo $quantite; ?>" />
                     </p>
-    <?php
-}
-?>
+                    <?php
+                }
+                ?>
             </fieldset>
         </div>
         <div class="piedForm">
@@ -113,14 +113,14 @@ foreach ($idJeuEltsFraisForfait as $lgEltForfait) {
             <th class="montant">Montant</th>  
             <th class="action">&nbsp;</th>              
         </tr>
-<?php
+        <?php
 // demande de la requête pour obtenir la liste des éléments hors
 // forfait du visiteur connecté pour le mois demandé
-$idJeuEltsHorsForfait = $pdo->getLesFraisHorsForfait(obtenirIdUserConnecte(), $mois);
+        $idJeuEltsHorsForfait = $pdo->getLesFraisHorsForfait(obtenirIdUserConnecte(), $mois);
 
 // parcours des frais hors forfait du visiteur connecté
-foreach ($idJeuEltsHorsForfait as $lgEltHorsForfait) {
-    ?>
+        foreach ($idJeuEltsHorsForfait as $lgEltHorsForfait) {
+            ?>
             <tr>
                 <td><?php echo $lgEltHorsForfait["date"]; ?></td>
                 <td><?php echo filtrerChainePourNavig($lgEltHorsForfait["libelle"]); ?></td>
@@ -129,9 +129,9 @@ foreach ($idJeuEltsHorsForfait as $lgEltHorsForfait) {
                        onclick="return confirm('Voulez-vous vraiment supprimer cette ligne de frais hors forfait ?');"
                        title="Supprimer la ligne de frais hors forfait">Supprimer</a></td>
             </tr>
-    <?php
-}
-?>
+            <?php
+        }
+        ?>
     </table>
     <form action="" method="post">
         <div class="corpsForm">
