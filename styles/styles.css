@@ -298,7 +298,11 @@ table.listeLegere th.libelle{
     background-color: #FFFD8B;
 }
 
-.btnAffiche  {
-    background: url('images/details.png') no-repeat center center;
+td.details-control {
+    background: url('./images/details.png') no-repeat center center;
     cursor: pointer;
+}
+
+tr.shown td.details-control {
+    background: url('./images/detailsF.png') no-repeat center center;
 }

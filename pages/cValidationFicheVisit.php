@@ -38,7 +38,6 @@ if ($etape == "validerConsult") { // l'utilisateur valide ses nouvelles données
 }
 ?>
 <script type="text/javascript" charset="utf8" src="../include/js/traitementValidation.js"></script>
-<script type="text/javascript" charset="utf8" src="../include/js/refuseLibelle.js"></script>
 
 <form action="" method="post">
     <input type="hidden" name="etape" value="validerConsult" />
@@ -152,6 +151,7 @@ if ($etape == "validerConsult") {
             ?>
         </table>
         <p>Nombre de justificatifs : <?php echo $tabFicheFrais["nbJustificatifs"]; ?></p>
+        <p><input type="button" value="Enregistrer les modifications" id="btnEnregistrer"</p>
         </div>
         <?php
     }
